@@ -344,3 +344,44 @@ insert into customer values (20010018,'Michelle Pfeiffer','7808091786954',670000
 insert into customer values (20010019,'Whoopi Goldberg','7803242114563',770000);
 insert into customer values (20010020,'Emma Thompson','7802232116784',730000);
 commit ;
+
+drop table p_grade purge ;
+
+create table p_grade
+( position  varchar2(30) ,
+  s_age number ,
+  e_age number ,
+  s_year number ,
+  e_year number ,
+  s_pay  number ,
+  e_pay  number );
+
+insert into p_grade values ('Manager',0,24,1,2,12000000,29990000);
+insert into p_grade values ('Deputy Section chief',25,28,3,5,30000000,45000000);
+insert into p_grade values ('Section head',29,32,6,8,45010000,51000000);
+insert into p_grade values ('Deputy department head',33,36,9,10,51010000,60000000);
+insert into p_grade values ('Department head',37,40,11,13,60010000,75000000);
+insert into p_grade values ('Director',41,55,14,99,75010000,100000000);
+
+commit ;
+
+DROP TABLE gift purge ;
+
+create table gift
+( gno  number ,
+  gname varchar2(30) ,
+  g_start  number ,
+  g_end  number );
+
+insert into gift values(1,'Tuna Set',1,100000);
+insert into gift values(2,'Shampoo Set',100001,200000);
+insert into gift values(3,'Car wash Set',200001,300000);
+insert into gift values(4,'Kitchen Supplies Set',300001,400000);
+insert into gift values(5,'Mountain bike',400001,500000);
+insert into gift values(6,'LCD Monitor',500001,600000);
+insert into gift values(7,'Notebook',600001,700000);
+insert into gift values(8,'Wall-Mountable TV',700001,800000);
+insert into gift values(9,'Drum Washing Machine',800001,900000);
+insert into gift values(10,'Refrigerator',900001,1000000);
+commit ;
+

@@ -192,6 +192,57 @@ left outer join student s
 on p.profno = s.profno
 order by s.studno, p.profno;
 
+-- 254page 1번.
+select s.name as "STU_NAME", d.deptno as "DEPTNO1", d.dname as "DEPT_NAME"
+from student s
+join department d
+on s.deptno1 = d.deptno;
+
+select * from p_grade;
+-- 2번.
+select e.name, e.position, to_char(e.pay, '999,999,999') as "PAY"
+     , to_char(p.s_pay, '999,999,999') as "Low PAY"
+     , to_char(p.e_pay, '999,999,999') as "High PAY"
+from emp2 e
+join p_grade p
+on e.position = p.position;
+
+-- 3번.
+select * from p_grade;
+select * from emp2;
+
+select e.name, trunc(months_between(add_months(sysdate, -144), e.birthday)/12) as "AGE"
+      ,e.position as "CURR_POSITION"
+      ,p.position as "BE_POSITION"
+from emp2 e
+join p_grade p
+on trunc(months_between(add_months(sysdate, -144), e.birthday)/12) between p.s_age and p.e_age;
+
+select * from customer;
+select * from gift;
+
+select c.gname as "CUST_NAME", c.point, g.gname as "GIFT_NAME"
+from customer c
+join gift g
+on c.point >= g.g_end
+and g.gname = 'Notebook';
+
+-- 5
+select * from professor;
+select p1.profno, p1.name, p1.hiredate, count(p2.profno)
+from professor p1
+left outer join professor p2
+on p1.hiredate > p2.hiredate
+group by p1.profno, p1.name, p1.hiredate
+order by 4;
+
+select * from emp;
+select e1.empno, e1.ename, e1.hiredate, count(e2.empno) as "COUNT"
+from emp e1
+left outer join emp e2
+on e1.hiredate > e2.hiredate
+group by e1.empno, e1.ename, e1.hiredate
+order by 4;
 
 
 
