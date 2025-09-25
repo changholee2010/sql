@@ -243,11 +243,3 @@ left outer join emp e2
 on e1.hiredate > e2.hiredate
 group by e1.empno, e1.ename, e1.hiredate
 order by 4;
-
-
-
-
-
-
-
-
